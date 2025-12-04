@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Spirits Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="images/logo.svg" alt="Spirits Shop Logo" class="logo-img">
+            <span>The Spirits Shop</span>
+        </div>
+        <nav>
+            <a href="#" data-page="home">Home</a>
+            <a href="#" data-page="store">Store</a>
+            <a href="#" data-page="about-contact">Contact / About</a> 
+        </nav>
+        <button id="view-cart-btn">View Cart (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <main id="featured-products-page" class="page-content">
+        <div class="hero">
+            <h2>Featured Spirits</h2>
+            <p>A curated selection of our finest offerings.</p>
+        </div>
+        
+        <section id="featured-grid" class="product-grid"></section> 
+        
+        <div style="text-align: center; padding: 40px;">
+            <p>Please verify your age to access the full collection and shopping cart.</p>
+        </div>
+    </main>
+
+    <div id="full-store-page" class="page-content" style="display: none;">
+        <section class="filters-container">
+            <div class="filters">
+                <label for="category-filter">Category:</label>
+                <select id="category-filter"></select>
+            </div>
+            <div class="filters">
+                <label for="brand-filter">Brand:</label>
+                <select id="brand-filter"></select>
+            </div>
+        </section>
+        
+        <section id="products" class="product-grid"></section>
+    </div>
+
+    <div id="about-contact-page" class="page-content" style="display: none;">
+        
+        <nav class="sub-nav">
+            <a href="#" data-section="about">About Us</a>
+            <a href="#" data-section="contact">Contact Us</a>
+        </nav>
+
+        <section id="about-section" class="about-contact-content">
+            <h2>About The Spirits Shop 🍾</h2>
+            <p>We are a dedicated purveyor of fine spirits, specializing in rare whiskies, aged rums, and artisanal gins. Founded in 2025 by master Joseman Kuch Manyang, our mission is to bring the world's most exquisite beverages directly to your door.</p>
+            
+            <p>We pride ourselves on quality assurance, secure shipping, and responsible service. Every bottle is inspected, authenticated, and handled with care to ensure a premium experience from our cellar to your glass.</p>
+        </section>
+
+        <section id="contact-section" class="about-contact-content" style="display: none;">
+            <h2>Contact Us 📞</h2>
+            <p>We're here to assist you with any questions regarding orders, product details, or partnership inquiries.</p>
+            
+            <div class="contact-details">
+                <p>📧 Customer Support Email: <a href="mailto:support@spiritsshop.com">support@spiritsshop.com</a></p>
+                <p>📞 Phone (Mon-Fri, 9am-5pm): (Weeekends, 9PM till Dawn): +254793988778  JOSEMAN</p>
+                <p>📍 Headquarters:** 123 YMCA Runda, Thika, Khihamli Road</p>
+                
+                <h4 style="margin-top: 20px;">Send a Quick Message:</h4>
+                <form id="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="add-to-cart-btn" style="width: auto;">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="age-gate" style="display: none;">
+        <div>
+            <h2>Age Verification Required</h2>
+            <p>You must be 21 years old to enter this section of the site.</p>
+            <label for="birth-year">Enter Your Birth Year:</label>
+            <input type="number" id="birth-year" placeholder="YYYY" min="1900" max="2025" required>
+            <button id="verify-age-btn">Verify Age</button>
+            <p id="age-warning" style="margin-top: 10px;"></p>
+        </div>
+    </div>
+    
+    <aside id="cart-sidebar">
+        <div class="cart-header">
+            <h3>🛒 Your Cart</h3>
+            <button class="close-cart-btn">&times;</button>
+        </div>
+        <ul id="cart-items">
+            </ul>
+        <div class="cart-summary">
+            <p>Total: Ksh<span id="cart-total">0.00</span></p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+            <button id="clear-cart-btn" class="clear-cart-btn">Clear Cart</button>
+        </div>
+    </aside>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h3>📦 Shipping Information</h3>
+            <form id="shipping-form">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="address">Street Address</label>
+                <input type="text" id="address" name="address" required>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip/Postal</label>
+                        <input type="text" id="zip" name="zip" required>
+                    </div>
+                </div>
+                
+                <p class="summary-text">Total due: Ksh<span id="modal-total">0.00</span></p>
+
+                <button type="submit" class="submit-order-btn">Confirm Order</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast">Item added to cart!</div>
+
+    <script src="script.js?v=99"></script>
+</body>
+</html>
